@@ -1,0 +1,9 @@
+# Node dependencies
+node_modules
+
+#dev/build outputs
+dist
+.cache
+.awcache
+
+package-lock.json
