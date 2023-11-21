@@ -10,8 +10,8 @@ interface UsersListResponse {
 
 const ITEMS_PER_PAGE = 8;
 
-// TODO: PROVISIONAL
-export const getMembers = async (organizationName = 'lemoncode', currentPage = 1): Promise<UsersListResponse> => {
+
+export const getMembers = async (organizationName: string, currentPage: number): Promise<UsersListResponse> => {
 
     try {
         const { data, headers } = await octokit.request("GET /orgs/{org}/members", {
