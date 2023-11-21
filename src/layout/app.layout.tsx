@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 import GithubLogo from "@/common/assets/github-logo.png";
+import { Box, Container } from "@mui/material";
 
 interface Props {
   children: React.ReactNode;
@@ -27,7 +28,11 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>{children}</main>
+      <main>
+        <Container>
+          <Box sx={{ bgcolor: "#cfe8fc", minHeight: "90vh" }}>{children}</Box>
+        </Container>
+      </main>
     </>
   );
 };

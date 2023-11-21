@@ -3,3 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.user-list-container {
+  padding: 30px;
+}
+
+
+.user-list-container .user-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+  margin: 30px 0px;
+}
