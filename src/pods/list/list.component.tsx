@@ -1,6 +1,9 @@
 import React from "react";
 import { MemberEntity } from "./list.vm";
 import { ListEmpty, ListHeader, ListItem } from "./components";
+import { Spinner } from "@/common";
+import { Box } from "@mui/system";
+import { ListLoading } from "./components/ListLoading.component";
 
 interface Props {
   members: MemberEntity[];
@@ -17,6 +20,8 @@ export const List: React.FC<Props> = (props) => {
   return (
     <div className="user-list-container">
       <ListHeader />
+
+      {/* <ListLoading /> */}
 
       <div className="user-list">
         {isListEmpty && <ListEmpty />}

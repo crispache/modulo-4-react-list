@@ -18,12 +18,12 @@ export const ListItem: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Card variant="outlined" sx={{ width: 250, height: 200 }}>
+      <Card variant="outlined" sx={{ width: 250, height: 165 }}>
         <CardActionArea sx={{ padding: "20px" }}>
           <CardMedia
             component="img"
             sx={{
-              height: 90,
+              height: 70,
               width: "auto",
               objectFit: "contain",
               borderRadius: 1,
@@ -32,11 +32,11 @@ export const ListItem: React.FC<Props> = (props) => {
             alt="Foto del usuario"
           />
           <CardContent sx={{ padding: "10px 0px" }}>
-            <Typography variant="h5" component="div">
+            <Typography variant="body1">
               {member.userName}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Organización: XXXXX
+            <Typography variant="caption" color="text.secondary">
+              Organización: XXXX
             </Typography>
           </CardContent>
         </CardActionArea>
