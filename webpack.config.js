@@ -2,6 +2,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const basePath = __dirname;
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const DotEnv = require("dotenv-webpack");
+
+// TODO: Habría que separarlo en 2 entornos: Uno para dev y otro para prod
 
 module.exports = {
   context: path.join(basePath, "src"),
@@ -55,6 +58,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html", //Name of file in ./dist/
       template: "index.html", //Name of template in ./src
+    }),
+    new DotEnv({
+      path: "./env",
     }),
   ],
 };

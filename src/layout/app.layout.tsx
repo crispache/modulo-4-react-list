@@ -30,7 +30,7 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
       </AppBar>
       <main>
         <Container>
-          <Box sx={{ bgcolor: "#cfe8fc", minHeight: "90vh" }}>{children}</Box>
+          <Box sx={{ minHeight: "90vh" }}>{children}</Box>
         </Container>
       </main>
     </>
