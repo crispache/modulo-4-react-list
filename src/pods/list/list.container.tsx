@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useList } from "./hooks";
 import { List } from "./list.component";
-import { getMembers } from "./list.repository";
-import { MemberEntity } from "./list.vm";
 
 export const ListContainer: React.FC = () => {
+  const { listMembers, getMembersList, isLoading, totalPages } =
+    useList();
 
-    const [members, setMembers] = useState<MemberEntity[]>([])
+  useEffect(() => {
+    getMembersList(1);
+  }, []);
 
-    useEffect(() => {
-      getMembers().then(setMembers)
-    }, [])
-    
-    return (
-        <>
-            <List members={members}/>
-        </>
-    )
-}
+  return (
+    <>
+      <List
+        members={listMembers}
+        isLoading={isLoading}
+        totalPages={totalPages}
+        changePage={getMembersList}
+      />
+    </>
+  );
+};
