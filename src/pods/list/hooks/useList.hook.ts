@@ -16,7 +16,7 @@ const createDefaultList = (): Props => {
   return {
     data: [],
     currentPage: 1,
-    totalPages: 0,
+    totalPages: 1,
     isLoading: false,
     errorMessage: "",
   };
@@ -44,7 +44,7 @@ export const useList = () => {
       ...list,
       data: mapMembersToVM(data),
       isLoading: false,
-      totalPages: list.totalPages,
+      totalPages: pages,
     });
   }
 
