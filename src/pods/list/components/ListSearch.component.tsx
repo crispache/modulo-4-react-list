@@ -19,20 +19,20 @@ export const ListSearch: React.FC<Props> = () => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <Box display="flex" gap={2} sx={{ margin: "15px 0px" }}>
+      <Box display="flex" gap={2} flexWrap="wrap" sx={{ margin: "30px 0px" }}>
         <TextField
           label="Nombre de la organización"
           value={organizationName}
           placeholder="Ej: Lemoncode"
-          variant="filled"
-          fullWidth
+          variant="outlined"
           onChange={handleChangeOrgName}
+          sx={{ width: '320px'}}
         />
 
         <Button
           type="button"
           variant="contained"
-          sx={{ width: "200px" }}
+          sx={{ minWidth: "150px", height: '55px' }}
           onClick={handleSubmit}
         >
           Buscar

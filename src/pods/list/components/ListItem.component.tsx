@@ -19,7 +19,7 @@ export const ListItem: React.FC<Props> = (props) => {
   return (
     <>
       <Card variant="outlined" sx={{ width: 250, height: 165 }}>
-        <CardActionArea sx={{ padding: "20px" }}>
+        <CardActionArea sx={{ padding: "20px"}}>
           <CardMedia
             component="img"
             sx={{
