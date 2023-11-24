@@ -1,18 +1,18 @@
 import React from "react";
 import { MemberEntity } from "./list.vm";
-import { ListEmpty, ListHeader, ListItem } from "./components";
-import { ListLoading } from "./components/ListLoading.component";
+import { ListEmpty, ListHeader, ListItem, ListLoading, ListSearch } from "./components";
 import { Box, Pagination } from "@mui/material";
 
 interface Props {
   members: MemberEntity[];
   isLoading: boolean;
   totalPages: number;
-  changePage: (page: number) => void;
+  onChangePage: (page: number) => void;
 }
 
 export const List: React.FC<Props> = (props) => {
-  const { members, isLoading, totalPages, changePage } = props;
+  
+  const { members, isLoading, totalPages, onChangePage } = props;
   const [page, setpage] = React.useState<number>(1);
 
   // TODO: COMPROBAR RENDERIZACIÓN
@@ -23,12 +23,14 @@ export const List: React.FC<Props> = (props) => {
 
   const handlePagination = (e: React.ChangeEvent<HTMLInputElement>, value: number) => {
     setpage(value);
-    changePage(value);
+    onChangePage(value);
   }
 
   return (
     <div className="user-list-container">
       <ListHeader />
+
+      <ListSearch />
 
       {isLoading && <ListLoading />}
 

@@ -1,14 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useList } from "./hooks";
 import { List } from "./list.component";
+import { ListContext } from "./providers";
 
 export const ListContainer: React.FC = () => {
-  const { listMembers, getMembersList, isLoading, totalPages } =
-    useList();
+  const { listMembers, getMembersList, isLoading, totalPages } = useList();
+  const { searchList } = React.useContext(ListContext);
 
-  useEffect(() => {
-    getMembersList(1);
-  }, []);
+  
+  React.useEffect(() => {
+    getMembersList(searchList,1);
+  }, [searchList]);
+
+
+  const onChangePage = (page: number) => {
+    getMembersList(searchList, page)
+  }
+
 
   return (
     <>
@@ -16,7 +24,7 @@ export const ListContainer: React.FC = () => {
         members={listMembers}
         isLoading={isLoading}
         totalPages={totalPages}
-        changePage={getMembersList}
+        onChangePage={onChangePage}
       />
     </>
   );

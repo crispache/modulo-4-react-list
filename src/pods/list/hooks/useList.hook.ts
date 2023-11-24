@@ -16,7 +16,7 @@ const createDefaultList = (): Props => {
   return {
     data: [],
     currentPage: 1,
-    totalPages: 1,
+    totalPages: 0,
     isLoading: false,
     errorMessage: "",
   };
@@ -29,14 +29,13 @@ const DEFAULT_ERROR_MESSAGE = 'Se ha producido un error al cargar el listado';
 export const useList = () => {
   const [list, setList] = React.useState<Props>(createDefaultList());
 
-
   const handleErrors = (errorMessage = DEFAULT_ERROR_MESSAGE) => {
     setList({
       ...list,
       data: [],
       isLoading: false,
       errorMessage,
-      totalPages: 1,
+      totalPages: 0,
     });
   }
 
@@ -45,15 +44,15 @@ export const useList = () => {
       ...list,
       data: mapMembersToVM(data),
       isLoading: false,
-      totalPages: pages ? pages : list.totalPages,
+      totalPages: list.totalPages,
     });
   }
 
   /* Get List */
-  const getList = async (currentPage: number) => {
+  const getList = async (organizationName: string, currentPage: number) => {
     try {
       setList({ ...list, isLoading: true, errorMessage: "" });
-      const { data, error, pages } = await api.getMembers("lemoncode", currentPage);
+      const { data, error, pages } = await api.getMembers(organizationName, currentPage);
 
       if (error) {
         handleErrors(error);
