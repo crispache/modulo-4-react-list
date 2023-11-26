@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { MemberEntity } from "../list.vm";
-
+import { routes } from "@/router";
 
 interface Props {
   member: MemberEntity;
@@ -19,7 +19,11 @@ export const ListItem: React.FC<Props> = (props) => {
   return (
     <>
       <Card variant="outlined" sx={{ width: 250, height: 165 }}>
-        <CardActionArea sx={{ padding: "20px"}}>
+        <CardActionArea
+          sx={{ padding: "20px" }}
+          LinkComponent="a"
+          href={routes.detail(member.userName)}
+        >
           <CardMedia
             component="img"
             sx={{
@@ -32,9 +36,7 @@ export const ListItem: React.FC<Props> = (props) => {
             alt="Foto del usuario"
           />
           <CardContent sx={{ padding: "10px 0px" }}>
-            <Typography variant="body1">
-              {member.userName}
-            </Typography>
+            <Typography variant="body1">{member.userName}</Typography>
             <Typography variant="caption" color="text.secondary">
               Organización: XXXX
             </Typography>
