@@ -44,7 +44,7 @@ export const useList = () => {
       ...list,
       data: mapMembersToVM(data),
       isLoading: false,
-      totalPages: pages,
+      totalPages: pages === undefined ? list.totalPages : pages,
     });
   }
 
