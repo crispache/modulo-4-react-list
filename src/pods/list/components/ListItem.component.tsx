@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
+  Chip,
   Typography,
 } from "@mui/material";
 import { MemberEntity } from "../list.vm";
 import { routes } from "@/router";
+import { ListContext } from "../providers";
 
 interface Props {
   member: MemberEntity;
@@ -15,6 +17,7 @@ interface Props {
 
 export const ListItem: React.FC<Props> = (props) => {
   const { member } = props;
+  const { searchList } = React.useContext(ListContext)
 
   return (
     <>
@@ -37,8 +40,8 @@ export const ListItem: React.FC<Props> = (props) => {
           />
           <CardContent sx={{ padding: "10px 0px" }}>
             <Typography variant="body1">{member.userName}</Typography>
-            <Typography variant="caption" color="text.secondary">
-              Organización: XXXX
+            <Typography variant="caption" color="text.secondary" textTransform="capitalize">
+              Organización: <Chip label={searchList} size="small" />
             </Typography>
           </CardContent>
         </CardActionArea>
