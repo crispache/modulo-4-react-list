@@ -2,6 +2,7 @@ import React from "react";
 import { MemberEntity } from "./list.vm";
 import { ListEmpty, ListHeader, ListItem, ListLoading, ListSearch } from "./components";
 import { Box, Pagination } from "@mui/material";
+import { ListContext } from "@/core/providers";
 
 interface Props {
   members: MemberEntity[];
@@ -13,7 +14,9 @@ interface Props {
 export const List: React.FC<Props> = (props) => {
   
   const { members, isLoading, totalPages, onChangePage } = props;
-  const [page, setpage] = React.useState<number>(1);
+  const context = React.useContext(ListContext)
+  const [page, setpage] = React.useState<number>(context.page);
+ 
 
   // TODO: COMPROBAR RENDERIZACIÓN
   const isListEmpty = React.useMemo<boolean>(() => {
@@ -23,8 +26,14 @@ export const List: React.FC<Props> = (props) => {
 
   const handlePagination = (e: React.ChangeEvent<HTMLInputElement>, value: number) => {
     setpage(value);
+    context.setPage(value)
     onChangePage(value);
   }
+
+
+  React.useEffect( () => {
+      setpage(context.page);
+  }, [context.page])
 
   return (
     <div className="user-list-container">

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { switchRoutes } from "./routes";
 import { DetailScene, ListScene } from "@/scenes";
-import { ListProvider } from "@/pods/list/providers";
+import { ListProvider } from "@/core/providers/list";
 
 export const AppRouter = () => {
   return (

@@ -1,22 +1,24 @@
 import React from "react";
 import { useList } from "./hooks";
 import { List } from "./list.component";
-import { ListContext } from "./providers";
+import { ListContext } from "@/core/providers/list";
 
 export const ListContainer: React.FC = () => {
   const { listMembers, getMembersList, isLoading, totalPages } = useList();
-  const { searchList } = React.useContext(ListContext);
+  const { searchList, list } = React.useContext(ListContext);
+  const isMounted = React.useRef(false);
 
-  
   React.useEffect(() => {
-    getMembersList(searchList,1);
+    if(isMounted.current) {
+      getMembersList(searchList,1);
+    } 
+    isMounted.current = true;
   }, [searchList]);
 
 
   const onChangePage = (page: number) => {
-    getMembersList(searchList, page)
-  }
-
+    getMembersList(searchList, page);
+  };
 
   return (
     <>

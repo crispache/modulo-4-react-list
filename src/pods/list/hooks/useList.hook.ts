@@ -1,4 +1,5 @@
 import React from "react";
+import { ListContext } from "@/core/providers";
 import { MemberEntityApi } from "../api/api.model";
 import { mapMembersToVM } from "../list.mappers";
 import { MemberEntity } from "../list.vm";
@@ -27,7 +28,15 @@ const DEFAULT_ERROR_MESSAGE = 'Se ha producido un error al cargar el listado';
 
 
 export const useList = () => {
-  const [list, setList] = React.useState<Props>(createDefaultList());
+  const context = React.useContext(ListContext);
+  const [list, setList] = React.useState<Props>({
+    data: context.list,
+    currentPage: context.page,
+    totalPages: context.totalPages,
+    isLoading: false,
+    errorMessage: "",
+  });
+ 
 
   const handleErrors = (errorMessage = DEFAULT_ERROR_MESSAGE) => {
     setList({
@@ -37,6 +46,9 @@ export const useList = () => {
       errorMessage,
       totalPages: 0,
     });
+    context.setPage(1)
+    context.setTotalPages(0);
+    context.setList([]);
   }
 
   const handleSuccessfulResult = (data: MemberEntityApi[], pages: number) => {
@@ -46,6 +58,8 @@ export const useList = () => {
       isLoading: false,
       totalPages: pages === undefined ? list.totalPages : pages,
     });
+    context.setTotalPages(pages === undefined ? list.totalPages : pages);
+    context.setList(mapMembersToVM(data))
   }
 
   /* Get List */
@@ -59,12 +73,27 @@ export const useList = () => {
       } 
       
       if(!error){
+        context.setPage(currentPage)
         handleSuccessfulResult(data, pages);
       }
     } catch (error) {
       handleErrors();
     }
   };
+
+  React.useEffect(() => {
+      if(context.list.length !== 0) {
+        setList({
+          data: context.list,
+          currentPage: context.page,
+          totalPages: context.totalPages,
+          isLoading: false,
+          errorMessage: "",
+        });
+      } else {
+        getList(context.searchList, 1)
+      }
+  }, [])
 
   return {
     ...list,

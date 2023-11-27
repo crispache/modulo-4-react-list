@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { ListContext } from "../providers";
+import { ListContext } from "@/core/providers/list";
 
 interface Props {}
 

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { MemberEntity } from "../list.vm";
 import { routes } from "@/router";
-import { ListContext } from "../providers";
+import { ListContext } from "@/core/providers/list";
 
 interface Props {
   member: MemberEntity;
