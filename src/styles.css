@@ -16,3 +16,30 @@
   gap: 30px;
   margin: 30px 0px;
 }
+
+
+.member-details-container {
+  padding: 30px;
+}
+
+.member-details-container .member-details {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  display: flex;
+  gap: 5px;
+}
+
+
+.organization-name {
+  margin: 10px 0px;
+}
+
+.github-account-info {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
