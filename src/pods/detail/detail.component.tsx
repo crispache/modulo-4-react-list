@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { routes } from "@/router";
 import { Button } from "@mui/material";
+import { ArrowBack } from "@mui/icons-material";
 import {
   DetailBiography,
   DetailImage,
@@ -8,7 +10,6 @@ import {
   DetailLoading,
 } from "./components";
 import { MemberDetailEntity } from "./detail.vm";
-import { ArrowBack } from "@mui/icons-material";
 
 interface Props {
   member: MemberDetailEntity;
@@ -17,14 +18,19 @@ interface Props {
 
 export const DetailComponent: React.FC<Props> = (props) => {
   const { member, isLoading } = props;
+  const navigate = useNavigate();
+
+  const backToList = () => {
+    navigate(routes.list);
+  };
 
   return (
     <div className="member-details-container">
       <Button
         variant="outlined"
         startIcon={<ArrowBack />}
-        href={routes.list}
         sx={{ marginBottom: 5 }}
+        onClick={backToList}
       >
         Volver al listado
       </Button>

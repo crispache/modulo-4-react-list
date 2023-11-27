@@ -10,13 +10,13 @@ interface UserDetailResponse {
 export const getUserDetail = async (userName: string): Promise<UserDetailResponse> => {
 
     try {
-       /*  const { data } = await octokit.request("GET /users/{username}", {
+        const { data } = await octokit.request("GET /users/{username}", {
             username: userName,
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
-        }); */
-       const data = USER_MOCK
+        });
+       //const data = USER_MOCK
 
         return { data }
 

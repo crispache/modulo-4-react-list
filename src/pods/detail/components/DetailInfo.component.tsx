@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Chip, IconButton, Tooltip, Typography } from "@mui/material";
 import { MemberDetailEntity } from "../detail.vm";
 import { OpenInNew } from "@mui/icons-material";
+import { ListContext } from "@/pods/list/providers";
 
 interface Props {
   data: Omit<MemberDetailEntity, "avatarUrl" | "bio">;
@@ -9,6 +10,7 @@ interface Props {
 
 export const DetailInfo: React.FC<Props> = (props) => {
   const { data } = props;
+  const { searchList } = React.useContext(ListContext)
 
   const openBrowserTabToShowGithubRepository = (): void => {
     window.open(data?.repoUrl);
@@ -26,7 +28,7 @@ export const DetailInfo: React.FC<Props> = (props) => {
       </div>
 
       <div className="organization-name">
-        <Chip label="Organización" color="primary" variant="outlined" />
+        <Chip label={searchList} color="primary" variant="outlined" />
       </div>
 
       <div className="extra-info">
