@@ -88,7 +88,6 @@ export const useList = () => {
         errorMessage: "",
       });
     } else {
-      console.log('EY')
       getList(context.organizationName, 1);
     }
   }, []);
