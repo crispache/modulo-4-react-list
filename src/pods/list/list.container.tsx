@@ -1,23 +1,24 @@
 import React from "react";
 import { useList } from "./hooks";
 import { List } from "./list.component";
-import { ListContext } from "@/core/providers/list";
+import { GithubListContext } from "@/core/providers/github";
 
 export const ListContainer: React.FC = () => {
   const { listMembers, getMembersList, isLoading, totalPages } = useList();
-  const { searchList, list } = React.useContext(ListContext);
+  const { githubListStore } = React.useContext(GithubListContext);
+  const { organizationName } = githubListStore;
   const isMounted = React.useRef(false);
 
   React.useEffect(() => {
     if(isMounted.current) {
-      getMembersList(searchList,1);
+      getMembersList(organizationName,1);
     } 
     isMounted.current = true;
-  }, [searchList]);
+  }, [organizationName]);
 
 
   const onChangePage = (page: number) => {
-    getMembersList(searchList, page);
+    getMembersList(organizationName, page);
   };
 
   return (

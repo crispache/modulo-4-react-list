@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { switchRoutes } from "./routes";
 import { DetailScene, ListScene } from "@/scenes";
-import { ListProvider } from "@/core/providers/list";
+import { GithubListProvider } from "@/core/providers";
 
 export const AppRouter = () => {
   return (
-    <ListProvider>
+    <GithubListProvider>
       <BrowserRouter>
         <Routes>
           <Route
@@ -17,6 +17,6 @@ export const AppRouter = () => {
           <Route path={switchRoutes.detail} element={<DetailScene />} />
         </Routes>
       </BrowserRouter>
-    </ListProvider>
+    </GithubListProvider>
   );
 };

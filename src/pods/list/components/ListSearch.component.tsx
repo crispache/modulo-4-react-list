@@ -1,16 +1,15 @@
 import React from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { ListContext } from "@/core/providers/list";
+import { GithubListContext } from "@/core/providers";
 
 interface Props {}
 
 export const ListSearch: React.FC<Props> = () => {
-  const { searchList, setSearchList } = React.useContext(ListContext);
-  const [organizationName, setOrganizationName] =
-    React.useState<string>(searchList);
+  const { githubListStore, setGithubListStore } = React.useContext(GithubListContext);
+  const [organizationName, setOrganizationName] = React.useState<string>(githubListStore.organizationName);
 
   const handleSubmit = () => {
-    setSearchList(organizationName);
+    setGithubListStore({...githubListStore, organizationName: organizationName })
   };
 
   const handleChangeOrgName = (e: React.ChangeEvent<HTMLInputElement>) => {

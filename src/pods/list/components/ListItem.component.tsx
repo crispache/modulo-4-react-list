@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { MemberEntity } from "../list.vm";
 import { routes } from "@/router";
-import { ListContext } from "@/core/providers/list";
+import { GithubListContext } from "@/core/providers";
 
 interface Props {
   member: MemberEntity;
@@ -18,7 +18,8 @@ interface Props {
 
 export const ListItem: React.FC<Props> = (props) => {
   const { member } = props;
-  const { searchList } = React.useContext(ListContext);
+  const { githubListStore } = React.useContext(GithubListContext);
+  const { organizationName } = githubListStore;
   const navigate = useNavigate();
 
   const showUserDetails = () => {
@@ -47,7 +48,7 @@ export const ListItem: React.FC<Props> = (props) => {
                 color="text.secondary"
                 textTransform="capitalize"
               >
-                Organización: <Chip label={searchList} size="small" />
+                Organización: <Chip label={organizationName} size="small" />
               </Typography>
             </CardContent>
           </CardActionArea>
