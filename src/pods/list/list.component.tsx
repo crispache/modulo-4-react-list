@@ -19,7 +19,6 @@ interface Props {
 export const List: React.FC<Props> = (props) => {
   const { members, isLoading, totalPages, onChangePage } = props;
 
-  // TODO: COMPROBAR RENDERIZACIÓN
   const isListEmpty = React.useMemo<boolean>(() => {
     return members.length === 0 ? true : false;
   }, [members]);

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 
-export const ListHeader: React.FC = () => {
+export const ListHeader: React.FC = React.memo(() => {
   return (
     <>
       <Typography variant="h4">Listado de usuarios</Typography>
@@ -10,4 +10,4 @@ export const ListHeader: React.FC = () => {
       </Typography>
     </>
   );
-};
+});

@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Box, Typography, Container } from "@mui/material";
 import Empty from "@/common/assets/empty.png";
 
 export const ListEmpty: React.FC = () => {
