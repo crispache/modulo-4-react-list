@@ -24,7 +24,7 @@ export const List: React.FC<Props> = (props) => {
   }, [members]);
 
   return (
-    <div className="user-list-container">
+    <div className="members-list-container">
       <ListHeader />
 
       <ListSearch />
@@ -33,7 +33,7 @@ export const List: React.FC<Props> = (props) => {
 
       {!isLoading && (
         <>
-          <div className="user-list">
+          <div className="members-list">
             {isListEmpty && <ListEmpty />}
 
             {!isListEmpty &&
@@ -42,7 +42,12 @@ export const List: React.FC<Props> = (props) => {
               ))}
           </div>
 
-          <ListPagination totalPages={totalPages} onChangePage={onChangePage} />
+          {!isListEmpty && (
+            <ListPagination
+              totalPages={totalPages}
+              onChangePage={onChangePage}
+            />
+          )}
         </>
       )}
     </div>
