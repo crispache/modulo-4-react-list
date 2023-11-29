@@ -1,4 +1,4 @@
-import { octokit } from "@/core/api";
+import { apiService } from "./api.service";
 import { getTotalPagesApiGithub } from "../helpers";
 import { MemberEntityApi } from "./api.model";
 
@@ -14,14 +14,14 @@ const ITEMS_PER_PAGE = 8;
 export const getMembers = async (organizationName: string, currentPage: number): Promise<UsersListResponse> => {
 
     try {
-        const { data, headers } = await octokit.request("GET /orgs/{org}/members", {
+       const {data, headers} = await apiService.getOrganizationMembers({
             org: organizationName,
             page: currentPage,
             per_page: ITEMS_PER_PAGE,
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
-        });
+        });   
 
         // TODO: Cambiar
          let totalPages = 0;

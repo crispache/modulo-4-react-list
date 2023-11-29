@@ -1,4 +1,4 @@
-import { octokit } from "@/core/api";
+/* import { octokit } from "@/core/api"; */
 import { MemberDetailEntityApi } from "./api.model";
 
 interface UserDetailResponse {
@@ -9,12 +9,13 @@ interface UserDetailResponse {
 export const getUserDetail = async (userName: string): Promise<UserDetailResponse> => {
 
     try {
-        const { data } = await octokit.request("GET /users/{username}", {
+       /*  const { data } = await octokit.request("GET /users/{username}", {
             username: userName,
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
-        });
+        }); */
+        const data  = null
 
         return { data }
 
