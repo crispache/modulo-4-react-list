@@ -14,13 +14,13 @@ export const DetailInfo: React.FC<Props> = (props) => {
   const { organizationName } = githubListStore;
 
   const openBrowserTabToShowGithubRepository = (): void => {
-    window.open(data?.repoUrl);
+    window.open(data.repoUrl);
   };
 
   return (
     <Box>
       <div className="user-name">
-        <Typography variant="h5">{data?.userName}</Typography>
+        <Typography variant="h5">{data.userName}</Typography>
         <Tooltip placement="top" title="Ver repositorio de Github">
           <IconButton size="small" aria-label="open url repository user" onClick={openBrowserTabToShowGithubRepository}>
             <OpenInNew />
@@ -43,9 +43,9 @@ export const DetailInfo: React.FC<Props> = (props) => {
       </div>
 
       <div className="github-account-info">
-        <Chip label={`Repositorios (${data?.publicRepos})`} size="small" />
-        <Chip label={`Seguidores (${data?.followers})`} size="small" />
-        <Chip label={`Siguiendo (${data?.following})`} size="small" />
+        <Chip label={`Repositorios (${data.publicRepos})`} size="small" />
+        <Chip label={`Seguidores (${data.followers})`} size="small" />
+        <Chip label={`Siguiendo (${data.following})`} size="small" />
       </div>
     </Box>
   );

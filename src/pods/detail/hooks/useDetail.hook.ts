@@ -10,29 +10,41 @@ interface Props {
   errorMessage: string;
 }
 
+const initialValues = {
+  userName: "",
+  avatarUrl: "",
+  email: null,
+  location: null,
+  publicRepos: 0,
+  followers: 0,
+  following: 0,
+  bio: null,
+  repoUrl: "",
+};
+
 const createDefaultMemberDetails = (): Props => {
   return {
-    data: null,
+    data: initialValues,
     isLoading: false,
     errorMessage: "",
   };
 };
 
-const DEFAULT_ERROR_MESSAGE = 'Se ha producido un error al cargar los datos';
-
-
+const DEFAULT_ERROR_MESSAGE = "Se ha producido un error al cargar los datos";
 
 export const useDetail = () => {
-  const [detail, setDetail] = React.useState<Props>(createDefaultMemberDetails());
+  const [detail, setDetail] = React.useState<Props>(
+    createDefaultMemberDetails()
+  );
 
   const handleErrors = (errorMessage = DEFAULT_ERROR_MESSAGE) => {
     setDetail({
       ...detail,
-      data: null,
+      data: initialValues,
       isLoading: false,
       errorMessage,
     });
-  }
+  };
 
   const handleSuccessfulResult = (data: MemberDetailEntityApi) => {
     setDetail({
@@ -40,7 +52,7 @@ export const useDetail = () => {
       data: mapMemberDetailsToVM(data),
       isLoading: false,
     });
-  }
+  };
 
   /* Get Details User  */
   const getUserDetail = async (userName: string) => {
@@ -50,9 +62,9 @@ export const useDetail = () => {
 
       if (error) {
         handleErrors(error);
-      } 
-      
-      if(!error){
+      }
+
+      if (!error) {
         handleSuccessfulResult(data);
       }
     } catch (error) {
@@ -62,6 +74,6 @@ export const useDetail = () => {
 
   return {
     ...detail,
-    getUserDetail
+    getUserDetail,
   };
 };

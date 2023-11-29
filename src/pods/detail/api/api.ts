@@ -1,5 +1,4 @@
 import { octokit } from "@/core/api";
-import { USER_MOCK } from "../mocks/detail.mock";
 import { MemberDetailEntityApi } from "./api.model";
 
 interface UserDetailResponse {
@@ -16,7 +15,6 @@ export const getUserDetail = async (userName: string): Promise<UserDetailRespons
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
-       //const data = USER_MOCK
 
         return { data }
 
