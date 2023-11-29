@@ -13,7 +13,11 @@ export const DetailContainer: React.FC = () => {
 
   return (
     <>
-      <DetailComponent member={data} isLoading={isLoading} />
+      <DetailComponent
+        member={data}
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+      />
     </>
   );
 };

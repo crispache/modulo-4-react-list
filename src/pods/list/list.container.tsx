@@ -4,7 +4,7 @@ import { List } from "./list.component";
 import { GithubListContext } from "@/core/providers/github";
 
 export const ListContainer: React.FC = () => {
-  const { listMembers, getMembersList, isLoading, totalPages } = useList();
+  const { listMembers, getMembersList, isLoading, totalPages, errorMessage } = useList();
   const { githubListStore } = React.useContext(GithubListContext);
   const { organizationName } = githubListStore;
   const isMounted = React.useRef(false);
@@ -27,6 +27,7 @@ export const ListContainer: React.FC = () => {
         members={listMembers}
         isLoading={isLoading}
         totalPages={totalPages}
+        errorMessage={errorMessage}
         onChangePage={onChangePage}
       />
     </>

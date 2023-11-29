@@ -10,19 +10,28 @@ import {
   DetailLoading,
 } from "./components";
 import { MemberDetailEntity } from "./detail.vm";
+import { ErrorNotification } from "@/common";
 
 interface Props {
   member: MemberDetailEntity;
   isLoading: boolean;
+  errorMessage?: string;
 }
 
 export const DetailComponent: React.FC<Props> = (props) => {
-  const { member, isLoading } = props;
+  const { member, isLoading, errorMessage } = props;
+  const [showError, setShowError] = React.useState<boolean>(false);
   const navigate = useNavigate();
 
   const backToList = () => {
     navigate(routes.list);
   };
+
+  React.useEffect(() => {
+    if (errorMessage) {
+      setShowError(true);
+    }
+  }, [errorMessage]);
 
   return (
     <div className="member-details-container">
@@ -47,6 +56,11 @@ export const DetailComponent: React.FC<Props> = (props) => {
           <DetailBiography biography={member?.bio} />
         </>
       )}
+      <ErrorNotification
+        isOpen={showError}
+        errorMessage={errorMessage}
+        handleClose={() => setShowError(false)}
+      />
     </div>
   );
 };
