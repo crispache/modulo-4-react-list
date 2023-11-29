@@ -29,6 +29,8 @@ export const getMembers = async (organizationName: string, currentPage: number):
              if(headers.link && headers.link?.split(',')[1]) {
                  const lastUrl = headers.link?.split(',')[1]
                  totalPages = getTotalPagesApiGithub(lastUrl);
+             } else {
+                totalPages = 1;
              }
              return { data, pages: totalPages}
          } else {
