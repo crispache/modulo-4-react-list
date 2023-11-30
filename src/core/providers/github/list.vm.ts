@@ -1,4 +1,4 @@
-import { MemberEntity } from "@/pods/list/list.vm";
+import { MemberEntity } from "@/pods/github/list/list.vm";
 
 export interface GithubList {
   organizationName: string;

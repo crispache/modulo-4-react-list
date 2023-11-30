@@ -3,7 +3,7 @@ import { GithubListContext } from "@/core/providers";
 import { MemberEntityApi } from "../api/api.model";
 import { mapMembersToVM } from "../list.mappers";
 import { MemberEntity } from "../list.vm";
-import * as api from "./../api";
+import * as api from "../api";
 
 interface Props {
   data: MemberEntity[];

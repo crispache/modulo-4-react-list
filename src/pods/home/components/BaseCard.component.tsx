@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardActionArea,
@@ -12,14 +13,21 @@ interface Props {
   subtitle: string;
   imgUrl: string;
   imgAlt: string;
+  route: string;
 }
 
 export const BaseCard: React.FC<Props> = (props) => {
-  const { title, subtitle, imgUrl, imgAlt } = props;
+  const { title, subtitle, imgUrl, imgAlt, route } = props;
+  const navigate = useNavigate();
+
+
+  const handleRoute = () => {
+    navigate(route)
+  };
   return (
     <>
       <Card sx={{ maxWidth: 330 }} variant="outlined">
-        <CardActionArea sx={{ padding: "20px" }}>
+        <CardActionArea sx={{ padding: "20px" }} onClick={handleRoute}>
           <CardMedia
             component="img"
             sx={{

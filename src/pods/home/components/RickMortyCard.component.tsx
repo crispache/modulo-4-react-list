@@ -10,6 +10,7 @@ export const RickMortyCard: React.FC = () => {
         subtitle="Ver el listado de personajes de la serie Rick & Morty."
         imgUrl={RickMortyLogo}
         imgAlt="Logo de Rick & Morty"
+        route="/rick-morty"
       />
     </>
   );

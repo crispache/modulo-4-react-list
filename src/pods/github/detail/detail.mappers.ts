@@ -1,4 +1,4 @@
-import { MemberDetailEntityApi } from "./api/";
+import { MemberDetailEntityApi } from "./api";
 import * as vm from "./detail.vm";
 
 

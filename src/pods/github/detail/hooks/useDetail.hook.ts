@@ -2,7 +2,7 @@ import React from "react";
 import { MemberDetailEntityApi } from "../api";
 import { mapMemberDetailsToVM } from "../detail.mappers";
 import { MemberDetailEntity } from "../detail.vm";
-import * as api from "./../api";
+import * as api from "../api";
 
 interface Props {
   data: MemberDetailEntity;

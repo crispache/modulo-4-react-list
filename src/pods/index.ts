@@ -1,4 +1,3 @@
-export * from './list'
-export * from './detail'
-export * as RickMorty from './rick-morty'
 export * from './home'
+export * as Github from './github'
+export * as RickMorty from './rick-morty'

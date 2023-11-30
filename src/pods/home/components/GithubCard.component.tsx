@@ -10,6 +10,7 @@ export const GithubCard: React.FC = () => {
         subtitle="Ver el listado de miembros de una organización en Github."
         imgUrl={GithubLogo}
         imgAlt="Logo de Github"
+        route="/github"
       />
     </>
   );
