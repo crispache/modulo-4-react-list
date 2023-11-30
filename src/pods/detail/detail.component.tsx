@@ -24,7 +24,7 @@ export const DetailComponent: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const backToList = () => {
-    navigate(routes.list);
+    navigate('/github/' + routes.list);
   };
 
   React.useEffect(() => {

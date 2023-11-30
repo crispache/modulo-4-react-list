@@ -7,8 +7,8 @@ interface SwitchRoutes {
 
 export const switchRoutes: SwitchRoutes = {
   root: "/",
-  list: "/list",
-  detail: "/detail/:id"
+  list: "list",
+  detail: "detail/:id"
 };
 
 interface Routes extends Omit<SwitchRoutes, "detail"> {

@@ -6,9 +6,9 @@ interface SwitchRoutes {
 }
 
 export const switchRoutes: SwitchRoutes = {
-  root: "/rick-morty",
-  list: "/rick-morty/list",
-  detail: "/rick-morty/detail/:id",
+  root: "/",
+  list: "list",
+  detail: "detail/:id",
 };
 
 interface Routes extends Omit<SwitchRoutes, "detail"> {

@@ -18,10 +18,10 @@ export const RickMortyLayout: React.FC<Props> = ({ children }) => {
             alt="Logo de Rick & Morty"
             height={30}
             width="auto"
-            style={{ marginRight: 8 }}
+            style={{ marginRight: 8, objectFit: 'contain' }}
           />
           <Typography variant="h6" component="div" noWrap>
-            App Rick & Morty
+            App Rick y Morty
           </Typography>
         </Toolbar>
       </AppBar>

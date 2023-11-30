@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import {
   Card,
   CardActionArea,
@@ -23,7 +23,8 @@ export const ListItem: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const showUserDetails = () => {
-    navigate(routes.detail(member.userName));
+    console.log('routes.detail(member.userName)', routes.detail(member.userName))
+    navigate('/github/' + routes.detail(member.userName));
   };
 
   return (
