@@ -1,11 +1,11 @@
 import React from "react";
-import { AppLayout } from "@/layout";
+import { GithubLayout } from "@/layout";
 import { ListContainer } from "@/pods";
 
 export const ListScene: React.FC = () => {
   return (
-    <AppLayout>
+    <GithubLayout>
         <ListContainer />
-    </AppLayout>
+    </GithubLayout>
   );
 };

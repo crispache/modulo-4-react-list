@@ -1,3 +1,3 @@
 
 export * from './app.router'
-export { routes } from './routes';
+export { routes } from './github/routes';

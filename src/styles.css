@@ -3,6 +3,22 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* HOME */
+.home-container {
+  margin: 60px 0px;
+}
+
+.home-container  .title-container {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.home-container .main-container {
+  display: flex;
+  justify-content: center;
+}
+
+
 /* LIST */
 .members-list-container {
   padding: 30px;

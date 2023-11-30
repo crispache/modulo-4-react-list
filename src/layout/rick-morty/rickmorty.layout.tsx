@@ -1,30 +1,27 @@
 import React from "react";
-
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import { Box, Container, AppBar, Toolbar } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import RickMortyLogo from "@/common/assets/rick-morty-logo.png";
 
-import GithubLogo from "@/common/assets/github-logo.png";
-import { Box, Container } from "@mui/material";
 
 interface Props {
   children: React.ReactNode;
 }
 
-export const AppLayout: React.FC<Props> = ({ children }) => {
+export const RickMortyLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <AppBar position="static" color="transparent">
         <Toolbar>
           <img
-            src={GithubLogo}
-            alt="Logo de Github"
+            src={RickMortyLogo}
+            alt="Logo de Rick & Morty"
             height={30}
             width="auto"
             style={{ marginRight: 8 }}
           />
           <Typography variant="h6" component="div" noWrap>
-            App Github
+            App Rick & Morty
           </Typography>
         </Toolbar>
       </AppBar>

@@ -1,2 +1,3 @@
-export * from './list.scene';
-export * from './detail.scene';
+export * from './github';
+export * as RickMorty from './rick-morty'
+export * from './app.scene';
