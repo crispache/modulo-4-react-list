@@ -32,7 +32,7 @@ export const List: React.FC<Props> = (props) => {
   }, [errorMessage]);
 
   return (
-    <div className="members-list-container">
+    <div className="characters-list-container">
       <ListHeader />
 
       {/* <ListSearch /> */}
@@ -41,7 +41,7 @@ export const List: React.FC<Props> = (props) => {
 
       {!isLoading && (
         <>
-          <div className="members-list">
+          <div className="characters-list">
             {isListEmpty && <ListEmpty />}
 
             {!isListEmpty &&

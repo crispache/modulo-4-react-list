@@ -11,4 +11,6 @@ export const mapCharacterToVM = (data: CharacterApi): vm.CharacterEntity => ({
     id: data.id,
     name: data.name,
     image: data.image,
+    gender: data.gender,
+    species: data.species,
 })

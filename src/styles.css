@@ -19,7 +19,7 @@
 }
 
 
-/* LIST */
+/* Github LIST  */
 .members-list-container {
   padding: 30px;
 }
@@ -33,6 +33,30 @@
 .members-list-container .pagination-container {
   display: flex;
   justify-content: center;
+}
+
+
+/* Rick & Morty List */
+.characters-list-container {
+  padding: 30px;
+  background-color: #121238;
+}
+
+.characters-list-container .characters-list-header {
+  color: #ffff;
+}
+
+.characters-list-container .characters-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+  margin: 30px 0px;
+}
+.characters-list-container .pagination-container {
+  display: flex;
+  justify-content: center;
+  color: #ffff;
 }
 
 
