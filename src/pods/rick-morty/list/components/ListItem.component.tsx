@@ -35,6 +35,7 @@ export const ListItem: React.FC<Props> = (props) => {
           height: 245,
           backgroundColor: palette.primary.dark,
           borderRadius: 2,
+          "&:hover": { backgroundColor: palette.primary.light },
         }}
       >
         <CardActionArea sx={{ padding: "15px" }} onClick={showUserDetails}>
@@ -42,38 +43,44 @@ export const ListItem: React.FC<Props> = (props) => {
             component="img"
             sx={{
               height: 135,
-              width: "100%",
-              objectFit: "cover",
-              borderRadius: 1,
+              width: "200",
+              objectFit: "contain",
             }}
             image={character.image}
             alt="Foto del personaje"
           />
           <CardContent sx={{ padding: "10px 0px 5px 0px" }}>
-          <Box sx={{textOverflow: 'ellipsis', width: '95%'}}>
-            <Typography
-              variant="h6"
-              color={palette.primary.contrastText}
-              style={{ textShadow: `0px 0px 20px ${palette.secondary.light}` }}
-            >
-              {character.name}
-            </Typography>
+            <Box>
+              <Typography
+                variant="h6"
+                color={palette.primary.contrastText}
+                style={{
+                  textShadow: `0px 0px 20px ${palette.secondary.light}`,
+                }}
+                noWrap
+              >
+                {character.name}
+              </Typography>
             </Box>
 
             <Box display="flex" gap={1} marginTop={1}>
-              <Chip
-                label={character.gender}
-                size="small"
-                variant="filled"
-                color="secondary"
-              />
-              <Chip
-                label={character.species}
-                size="small"
-                variant="filled"
-                color="secondary"
-                sx={{ color: palette.primary.main}}
-              />
+              <Typography noWrap>
+                <Chip
+                  label={character.gender}
+                  size="small"
+                  variant="filled"
+                  color="secondary"
+                />
+              </Typography>
+              <Typography noWrap>
+                <Chip
+                  label={character.species}
+                  size="small"
+                  variant="filled"
+                  color="secondary"
+                  sx={{ color: palette.primary.main }}
+                />
+              </Typography>
             </Box>
           </CardContent>
         </CardActionArea>
