@@ -68,6 +68,7 @@ export const ListItem: React.FC<Props> = (props) => {
                 <Chip
                   label={character.gender}
                   size="small"
+                  component="span"
                   variant="filled"
                   color="secondary"
                 />
@@ -77,6 +78,7 @@ export const ListItem: React.FC<Props> = (props) => {
                   label={character.species}
                   size="small"
                   variant="filled"
+                  component="span"
                   color="secondary"
                   sx={{ color: palette.primary.main }}
                 />

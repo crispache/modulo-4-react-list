@@ -60,6 +60,17 @@
 }
 
 
+
+.characters-list-container .pagination-container button{
+  color: #ffff;
+  border: 1px solid #ffff;
+}
+
+.characters-list-container .pagination-container button .Mui-selected{
+  /* color: #121238 !important; */
+  border: 1px solid #ffff;
+}
+
 /* DETAIL */
 .member-details-container {
   padding: 30px;

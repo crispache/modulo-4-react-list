@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { ErrorNotification } from "@/common";
 
+
 interface Props {
   characters: CharacterEntity[];
   isLoading: boolean;

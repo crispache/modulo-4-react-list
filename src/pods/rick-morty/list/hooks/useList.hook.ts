@@ -24,6 +24,7 @@ const DEFAULT_ERROR_MESSAGE = "Se ha producido un error al cargar el listado";
 
 export const useList = () => {
   const [list, setList] = React.useState<Props>(createDefaultList);
+  console.log('me renderizo useList')
 
   const handleErrors = (errorMessage = DEFAULT_ERROR_MESSAGE) => {
     setList({
@@ -76,8 +77,8 @@ export const useList = () => {
     }
   };
 
-  /* React.useEffect(() => {
-    if (context.members.length !== 0) {
+  React.useEffect(() => {
+    /* if (context.members.length !== 0) {
       setList({
         data: context.members,
         currentPage: context.currentPage,
@@ -87,8 +88,9 @@ export const useList = () => {
       });
     } else {
       getList(context.organizationName, 1);
-    }
-  }, []); */
+    } */
+   // getCharacters(1);
+  }, []);
 
   return {
     ...list,

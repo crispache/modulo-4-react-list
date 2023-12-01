@@ -2,7 +2,6 @@ import React from "react";
 import { Spinner } from "@/common";
 import { Box } from "@mui/system";
 
-
 export const ListLoading: React.FC = () => {
   return (
     <Box
@@ -14,7 +13,7 @@ export const ListLoading: React.FC = () => {
         textAlign: "center",
       }}
     >
-      <Spinner />
+      <Spinner color="secondary"/>
     </Box>
   );
 };

@@ -1,8 +1,10 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, useTheme } from "@mui/material";
 import Empty from "@/common/assets/empty.png";
 
 export const ListEmpty: React.FC = () => {
+  const { palette } = useTheme();
+
   return (
     <Container>
       <Box
@@ -21,10 +23,10 @@ export const ListEmpty: React.FC = () => {
             height={210}
             width={280}
           />
-          <Typography variant="body2" display="block">
+          <Typography variant="body2" display="block" color={palette.primary.contrastText}>
             No se han encontrado resultados.
           </Typography>
-          <Typography variant="body2" display="block">
+          <Typography variant="body2" display="block" color={palette.primary.contrastText}>
             Pruebe con otro nombre.
           </Typography>
         </Box>

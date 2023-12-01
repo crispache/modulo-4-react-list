@@ -1,11 +1,16 @@
 import React from "react";
-import { CircularProgress } from "@mui/material";
-import { Box } from "@mui/system";
+import { CircularProgress, Box, CircularProgressProps } from "@mui/material";
 
-export const Spinner: React.FC = () => {
+
+interface Props {
+  color?: CircularProgressProps['color'];
+}
+
+export const Spinner: React.FC<Props> = ( props ) => {
+  const { color } = props
   return (
     <Box sx={{ display: "flex" }}>
-      <CircularProgress color="inherit" />
+      <CircularProgress color={color ? color : 'inherit'} />
     </Box>
   );
 };

@@ -6,7 +6,7 @@ export const ListContainer: React.FC = () => {
   const { listCharacters, getCharacters, isLoading, totalPages, errorMessage } = useList();
  
   const onChangePage = (page: number) => {
-   /*  getMembersList(organizationName, page); */
+      getCharacters(page);
   };
 
   React.useEffect(() => {
