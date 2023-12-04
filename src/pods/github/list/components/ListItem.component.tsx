@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { MemberEntity } from "../list.vm";
-import { routes } from "@/router";
+import { Github } from "@/router";
 import { GithubListContext } from "@/core/providers";
 
 interface Props {
@@ -23,7 +23,7 @@ export const ListItem: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const showUserDetails = () => {
-    navigate('/github/' + routes.detail(member.userName));
+    navigate('/github/' + Github.routes.detail(member.userName));
   };
 
   return (

@@ -1,4 +1,4 @@
 
 export * from './app.router'
-export { routes } from './github/routes';
+export * as Github from './github';
 export * as RickMorty from './rick-morty'

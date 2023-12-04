@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
+import { RickMorty } from "@/router";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import {
@@ -23,7 +23,7 @@ export const DetailComponent: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const backToList = () => {
-    navigate('/rick-morty/' + routes.list);
+    navigate('/rick-morty/' + RickMorty.routes.list);
   };
 
   React.useEffect(() => {

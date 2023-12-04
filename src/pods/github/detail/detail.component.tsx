@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
+import { Github } from "@/router";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import {
@@ -24,7 +24,7 @@ export const DetailComponent: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const backToList = () => {
-    navigate('/github/' + routes.list);
+    navigate('/github/' + Github.routes.list);
   };
 
   React.useEffect(() => {
