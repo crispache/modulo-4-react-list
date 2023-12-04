@@ -2,16 +2,9 @@ import React from "react";
 import { GithubListContext } from "@/core/providers";
 import { MemberEntityApi } from "../api/api.model";
 import { mapMembersToVM } from "../list.mappers";
-import { MemberEntity } from "../list.vm";
 import * as api from "../api";
+import { useListProps } from "./useList.vm";
 
-interface Props {
-  data: MemberEntity[];
-  currentPage: number;
-  totalPages: number;
-  isLoading: boolean;
-  errorMessage: string;
-}
 
 const DEFAULT_ERROR_MESSAGE = "Se ha producido un error al cargar el listado";
 
@@ -19,7 +12,7 @@ export const useList = () => {
   const { githubListStore, setGithubListStore } = React.useContext(GithubListContext);
   const context = githubListStore;
 
-  const [list, setList] = React.useState<Props>({
+  const [list, setList] = React.useState<useListProps>({
     data: context.members,
     currentPage: context.currentPage,
     totalPages: context.totalPages,
@@ -78,6 +71,11 @@ export const useList = () => {
     }
   };
 
+  const onChangePage = React.useCallback((page: number) => {
+    getList(context.organizationName, page);
+  },[]);
+
+
   React.useEffect(() => {
     if (context.members.length !== 0) {
       setList({
@@ -95,6 +93,9 @@ export const useList = () => {
   return {
     ...list,
     listMembers: list.data,
+
+    // Methods
     getMembersList: getList,
+    onChangePage,
   };
 };

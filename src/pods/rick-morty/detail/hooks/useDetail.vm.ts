@@ -11,6 +11,7 @@ export const initialValues: CharacterDetailsEntity  = {
     image: '',
     gender: 'unknown',
     species: '',
+    location: '',
 };
 
 export const createDefaultCharacterDetails = (): useDetailProps => {

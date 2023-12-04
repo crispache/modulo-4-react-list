@@ -10,15 +10,8 @@ export const AppRouter = () => {
     <GithubListProvider>
       <BrowserRouter>
         <Routes>
-          {/* AÑADIR EL PROVIDER  */}
-
-          {/* RUTA PRINCIPAL */}
           <Route path="/" element={<AppScene />} />
-
-          {/* RUTAS GITHUB */}
           <Route path="/github/*" element={<GithubRouter />} />
-
-          {/* RUTAS RICKY&MORTY */}
           <Route path="/rick-morty/*" element={<RickMortyRouter />} />
         </Routes>
       </BrowserRouter>
