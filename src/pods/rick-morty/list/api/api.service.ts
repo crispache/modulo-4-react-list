@@ -2,6 +2,7 @@ import { ClientWrapperAPI } from "@/core/api";
 import { CharacterApi } from "./api.model";
 interface Params {
   page: number;
+  name: string;
 }
 
 interface Response {

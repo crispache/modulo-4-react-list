@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { useDebounce } from "use-debounce";
 import * as api from "../api";
 import { CharacterApi } from "../api/api.model";
 import { mapCharactersToVM } from "../list.mappers";
@@ -8,7 +9,9 @@ const DEFAULT_ERROR_MESSAGE = "Se ha producido un error al cargar el listado";
 
 
 export const useList = () => {
+  const [filter, setFilter] = React.useState("");
   const [list, setList] = React.useState<useListProps>(initialValues);
+  const [debouncedFilter] = useDebounce(filter, 500);
   
 
   const handleErrors = useCallback((errorMessage = DEFAULT_ERROR_MESSAGE) => {
@@ -48,7 +51,7 @@ export const useList = () => {
   const getCharacters = useCallback( async (currentPage: number) => {
     try {
       setList({ ...list, isLoading: true, errorMessage: "" });
-      const { data, error, pages } =  await api.getCharacters(currentPage);
+      const { data, error, pages } =  await api.getCharacters(currentPage, filter);
 
       if (error) {
         handleErrors(error);
@@ -60,34 +63,26 @@ export const useList = () => {
     } catch (error) {
       handleErrors();
     }
-  }, [handleErrors, handleSuccessfulResult]);
+  }, [handleErrors, handleSuccessfulResult, filter]);
 
 
   const onChangePage = useCallback((page: number ) => {
     getCharacters(page); 
   },[])
 
+
   React.useEffect(() => {
-     /* if (context.members.length !== 0) {
-      setList({
-        data: context.members,
-        currentPage: context.currentPage,
-        totalPages: context.totalPages,
-        isLoading: false,
-        errorMessage: "",
-      });
-    } else {
-      getList(context.organizationName, 1);
-    }  */
       getCharacters(1);
-  }, []);
+  }, [debouncedFilter]);
 
   return {
     // Props
+    filter,
     ...list,
     listCharacters: list.data,
 
     // Methods
+    setFilter,
     getCharacters,
     onChangePage,
   };

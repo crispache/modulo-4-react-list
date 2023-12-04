@@ -8,11 +8,12 @@ interface UsersListResponse {
 }
 
 
-export const getCharacters = async (currentPage: number): Promise<UsersListResponse> => {
+export const getCharacters = async (currentPage: number, filter?: string): Promise<UsersListResponse> => {
 
     try {
         const { info, results } = await apiService.getCharacters({
             page: currentPage,
+            name: filter ? filter : '', // todo: provisional
         });
 
         return {

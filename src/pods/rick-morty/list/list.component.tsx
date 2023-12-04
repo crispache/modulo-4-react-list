@@ -6,6 +6,7 @@ import {
   ListItem,
   ListLoading,
   ListPagination,
+  ListSearch,
 } from "./components";
 import { ErrorNotification } from "@/common";
 
@@ -17,10 +18,12 @@ interface Props {
   errorMessage?: string;
   onChangePage: (page: number) => void;
   currentPage: number;
+  filter: string;
+  setFilter: (filter: string ) => void;
 }
 
 export const List: React.FC<Props> = React.memo((props) => {
-  const { characters, isLoading, totalPages, onChangePage, errorMessage, currentPage } = props;
+  const { characters, isLoading, totalPages, onChangePage, errorMessage, currentPage, filter, setFilter } = props;
   const [showError, setShowError] = React.useState<boolean>(false);
 
   const isListEmpty = React.useMemo<boolean>(() => {
@@ -37,7 +40,7 @@ export const List: React.FC<Props> = React.memo((props) => {
     <div className="characters-list-container">
       <ListHeader />
 
-      {/* <ListSearch /> */}
+      <ListSearch filter={filter} setFilter={setFilter} />
 
       {isLoading && <ListLoading />}
 
