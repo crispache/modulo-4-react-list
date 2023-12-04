@@ -16,10 +16,11 @@ interface Props {
   totalPages: number;
   errorMessage?: string;
   onChangePage: (page: number) => void;
+  currentPage: number;
 }
 
-export const List: React.FC<Props> = (props) => {
-  const { characters, isLoading, totalPages, onChangePage, errorMessage } = props;
+export const List: React.FC<Props> = React.memo((props) => {
+  const { characters, isLoading, totalPages, onChangePage, errorMessage, currentPage } = props;
   const [showError, setShowError] = React.useState<boolean>(false);
 
   const isListEmpty = React.useMemo<boolean>(() => {
@@ -53,6 +54,7 @@ export const List: React.FC<Props> = (props) => {
 
           {!isListEmpty && (
             <ListPagination
+              currentPage={currentPage}
               totalPages={totalPages}
               onChangePage={onChangePage}
             />
@@ -66,4 +68,4 @@ export const List: React.FC<Props> = (props) => {
       />
     </div>
   );
-};
+});

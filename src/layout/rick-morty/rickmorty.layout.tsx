@@ -29,7 +29,7 @@ export const RickMortyLayout: React.FC<Props> = ({ children }) => {
       </AppBar>
       <main style={{ backgroundColor: palette.primary.main}}>
         <Container>
-          <Box sx={{ minHeight: "90vh" }}>{children}</Box>
+          <Box sx={{ minHeight: "100vh" }}>{children}</Box>
         </Container>
       </main>
     </>

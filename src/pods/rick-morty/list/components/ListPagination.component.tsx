@@ -4,11 +4,12 @@ import { Pagination } from "@mui/material";
 interface Props {
     totalPages: number;
     onChangePage: (page: number) => void;
+    currentPage: number;
 }
 
 export const ListPagination: React.FC<Props> = (props) => {
-    const { onChangePage, totalPages } = props;   
-    const [page, setPage] = React.useState<number>(1);
+    const { onChangePage, totalPages, currentPage } = props;   
+    const [page, setPage] = React.useState<number>(currentPage);
 
     const handlePagination = (e: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);

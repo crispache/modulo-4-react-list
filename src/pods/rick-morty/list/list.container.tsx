@@ -3,16 +3,8 @@ import { useList } from "./hooks";
 import { List } from "./list.component";
 
 export const ListContainer: React.FC = () => {
-  const { listCharacters, getCharacters, isLoading, totalPages, errorMessage } = useList();
+  const { listCharacters, isLoading, totalPages, errorMessage, currentPage, onChangePage } = useList();
  
-  const onChangePage = (page: number) => {
-      getCharacters(page);
-  };
-
-  React.useEffect(() => {
-      getCharacters(1);
-  }, []);
-
   return (
     <>
        <List
@@ -21,6 +13,7 @@ export const ListContainer: React.FC = () => {
         totalPages={totalPages}
         errorMessage={errorMessage}
         onChangePage={onChangePage}
+        currentPage={currentPage}
       />
     </>
   );
