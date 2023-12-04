@@ -12,7 +12,7 @@ export const switchRoutes: SwitchRoutes = {
 };
 
 interface Routes extends Omit<SwitchRoutes, "detail"> {
-  detail: (id: string) => string;
+  detail: (id: number) => string;
 }
 
 export const routes: Routes = {

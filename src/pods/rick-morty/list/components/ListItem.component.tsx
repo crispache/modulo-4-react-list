@@ -11,7 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { CharacterEntity } from "../list.vm";
-import { routes } from "@/router";
+import { RickMorty } from "@/router";
 
 interface Props {
   character: CharacterEntity;
@@ -23,7 +23,7 @@ export const ListItem: React.FC<Props> = (props) => {
   const { palette } = useTheme();
 
   const showUserDetails = () => {
-    navigate("/rick-morty/" + routes.detail(character.name));
+    navigate("/rick-morty/" + RickMorty.routes.detail(character.id));
   };
 
   return (

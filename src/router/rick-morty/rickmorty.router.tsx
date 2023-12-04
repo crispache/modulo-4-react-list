@@ -13,7 +13,7 @@ export const RickMortyRouter = () => {
           element={<Navigate to={switchRoutes.list} />}
         />
         <Route path={switchRoutes.list} element={<RickMorty.ListScene />} />
-        {/* <Route path={switchRoutes.detail} element={<DetailScene />} /> */}
+        <Route path={switchRoutes.detail} element={<RickMorty.DetailScene />} />
       </Routes>
     </RickMortyTheme>
   );
