@@ -5,9 +5,9 @@ import { mapMembersToVM } from "../list.mappers";
 import * as api from "../api";
 import { useListProps } from "./useList.vm";
 
-
 const DEFAULT_ERROR_MESSAGE = "Se ha producido un error al cargar el listado";
 
+// TODO: REFACTORIZAR
 export const useList = () => {
   const { githubListStore, setGithubListStore } = React.useContext(GithubListContext);
   const context = githubListStore;
